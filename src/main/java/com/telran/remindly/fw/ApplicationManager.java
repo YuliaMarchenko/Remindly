@@ -15,9 +15,14 @@ public class ApplicationManager {
     DesiredCapabilities capabilities;
 
     MainScreenHelper mainScreen;
+    RemindersHelper remindersHelper;
 
     public MainScreenHelper getMainScreen() {
         return mainScreen;
+    }
+
+    public RemindersHelper getRemindersHelper() {
+        return remindersHelper;
     }
 
     public void init() throws MalformedURLException {
@@ -34,6 +39,7 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         mainScreen = new MainScreenHelper(driver);
+        remindersHelper = new RemindersHelper(driver);
     }
 
     public void stop() {
