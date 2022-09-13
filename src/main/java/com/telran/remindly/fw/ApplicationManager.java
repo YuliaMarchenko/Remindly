@@ -14,6 +14,12 @@ public class ApplicationManager {
 
     DesiredCapabilities capabilities;
 
+    MainScreenHelper mainScreen;
+
+    public MainScreenHelper getMainScreen() {
+        return mainScreen;
+    }
+
     public void init() throws MalformedURLException {
         capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName","Android");
@@ -26,6 +32,8 @@ public class ApplicationManager {
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+        mainScreen = new MainScreenHelper(driver);
     }
 
     public void stop() {

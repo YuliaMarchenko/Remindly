@@ -2,7 +2,7 @@ package com.telran.remindly.tests;
 
 import org.testng.annotations.Test;
 
-public class MainPageTests extends TestBase{
+public class MainScreenTests extends TestBase{
 
     @Test
     public void launchAppTest(){
