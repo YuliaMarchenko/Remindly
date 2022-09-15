@@ -43,10 +43,10 @@ public class CreateReminderTests extends TestBase{
         app.getRemindersHelper().tapOnYear();
         app.getRemindersHelper().selectYear("future", "2023");
         app.getRemindersHelper().tapOnOk();
-//        app.getRemindersHelper().tapOnTime();
-//        app.getRemindersHelper().selectTimeOfDay();
-//        app.getRemindersHelper().selectHours();
-//        app.getRemindersHelper().selectMinutes();
+        app.getRemindersHelper().tapOnTime();
+        app.getRemindersHelper().selectTimeOfDay("am");
+        app.getRemindersHelper().tapWithCoordinates(269, 924);
+        app.getRemindersHelper().tapWithCoordinates(539, 1205);
 //        app.getRemindersHelper().tapOnOk();
 //        app.getRemindersHelper().tapOnRepeatSwitch();
 //        app.getRemindersHelper().enterRepeatNumber("3");

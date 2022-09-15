@@ -5,7 +5,6 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -112,6 +111,14 @@ public class HelperBase {
         int middleX = (leftX + rightX) / 2;
         action.longPress(PointOption.point(middleX, downPoint))
                 .moveTo(PointOption.point(middleX, upPoint))
+                .release()
+                .perform();
+    }
+
+    public void tapWithCoordinates(int x, int y){
+        TouchAction action = new TouchAction(driver);
+
+        action.tap(PointOption.point(x,y))
                 .release()
                 .perform();
     }

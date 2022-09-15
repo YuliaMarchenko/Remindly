@@ -85,12 +85,26 @@ public class RemindersHelper extends HelperBase {
     private void swipeUpUntilNeededYear(String year){
         while (!getSelectedYear().equals(year)){
             moveUp(By.className("android.widget.ListView"));
+            getSelectedYear();
         }
     }
 
     private void swipeDownUntilNeededYear(String year){
         while (!getSelectedYear().equals(year)){
             moveDown(By.className("android.widget.ListView"));
+            getSelectedYear();
+        }
+    }
+
+    public void tapOnTime(){
+        tap(By.id("time"));
+    }
+
+    public void selectTimeOfDay(String td){
+        if(td.equals("am")){
+            tapWithCoordinates(260, 1300);
+        } else if (td.equals("pm")){
+            tapWithCoordinates(790, 1300);
         }
     }
 }
