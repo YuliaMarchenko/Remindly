@@ -44,4 +44,53 @@ public class RemindersHelper extends HelperBase {
     public void tapOnOk(){
         tap(By.id("ok"));
     }
+
+    public void selectCertainMonth(String type, int number, String month){
+        if (!selectedMonth().equals(month)){
+            for (int i = 0; i < number; i++){
+                if(type.equals("future")){
+                    swipeUp();
+                } else if (type.equals("past")){
+                    swipeDown();
+                }
+            }
+        }
+    }
+
+    private String selectedMonth(){
+        return driver.findElement(By.id("date_picker_month")).getText();
+    }
+
+    public void tapOnYear(){
+        tap(By.id("date_picker_year"));
+    }
+
+    public void selectYear(String type1, String year){
+        pause(2000);
+        if(!getSelectedYear().equals(year)){
+            if(type1.equals("future")){
+                swipeUpUntilNeededYear(year);
+            } else if (type1.equals("past")){
+                swipeDownUntilNeededYear(year);
+            }
+        }
+        tap(By.id("month_text_view"));
+
+    }
+
+    private String getSelectedYear(){
+        return driver.findElement(By.id("date_picker_year")).getText();
+    }
+
+    private void swipeUpUntilNeededYear(String year){
+        while (!getSelectedYear().equals(year)){
+            moveUp(By.className("android.widget.ListView"));
+        }
+    }
+
+    private void swipeDownUntilNeededYear(String year){
+        while (!getSelectedYear().equals(year)){
+            moveDown(By.className("android.widget.ListView"));
+        }
+    }
 }

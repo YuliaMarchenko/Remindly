@@ -36,7 +36,7 @@ public class ApplicationManager {
         capabilities.setCapability("app", "/Users/yulia_marchenko/Downloads/com.blanyal.remindly_2_apps.evozi.com.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         mainScreen = new MainScreenHelper(driver);
         remindersHelper = new RemindersHelper(driver);

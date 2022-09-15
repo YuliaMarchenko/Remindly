@@ -36,10 +36,22 @@ public class CreateReminderTests extends TestBase{
     @Test
     public void addReminderWithAllDataTest(){
         app.getRemindersHelper().tapOnAddReminder();
-        app.getRemindersHelper().fillReminderTitle("Test");
+        app.getRemindersHelper().fillReminderTitle("Christmas");
         app.getRemindersHelper().tapOnDateField();
-        app.getRemindersHelper().selectDay(19);
+        app.getRemindersHelper().selectCertainMonth("future", 4, "Dec");
+        app.getRemindersHelper().selectDay(23);
+        app.getRemindersHelper().tapOnYear();
+        app.getRemindersHelper().selectYear("future", "2023");
         app.getRemindersHelper().tapOnOk();
-        app.getRemindersHelper().saveReminder();
+//        app.getRemindersHelper().tapOnTime();
+//        app.getRemindersHelper().selectTimeOfDay();
+//        app.getRemindersHelper().selectHours();
+//        app.getRemindersHelper().selectMinutes();
+//        app.getRemindersHelper().tapOnOk();
+//        app.getRemindersHelper().tapOnRepeatSwitch();
+//        app.getRemindersHelper().enterRepeatNumber("3");
+//        app.getRemindersHelper().swipeUp();
+//        app.getRemindersHelper().enterRepeatTime("Month");
+//        app.getRemindersHelper().saveReminder();
     }
 }
