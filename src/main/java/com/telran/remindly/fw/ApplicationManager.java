@@ -17,7 +17,7 @@ public class ApplicationManager {
     MainScreenHelper mainScreen;
     RemindersHelper remindersHelper;
 
-    public MainScreenHelper getMainScreen() {
+    public MainScreenHelper getMainScreenHelper() {
         return mainScreen;
     }
 

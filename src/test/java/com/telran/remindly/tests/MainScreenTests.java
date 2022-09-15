@@ -7,6 +7,13 @@ public class MainScreenTests extends TestBase{
 
     @Test
     public void launchAppTest(){
-        Assert.assertTrue(app.getMainScreen().isNoReminderTextPresent());
+        Assert.assertTrue(app.getMainScreenHelper().isNoReminderTextPresent());
+    }
+
+    @Test
+    public void isLicensesPresent(){
+        app.getMainScreenHelper().tapMoreAction();
+        app.getMainScreenHelper().tapTitle();
+        Assert.assertTrue(app.getMainScreenHelper().isLicensesExist());
     }
 }
