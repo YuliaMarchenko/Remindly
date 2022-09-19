@@ -50,6 +50,18 @@ public class HelperBase {
                 .perform();
     }
 
+    public void swipeUp2() {
+        TouchAction action = new TouchAction(driver);
+        Dimension size = driver.manage().window().getSize();
+        int x = size.width / 2;
+        int yStart = (int) (size.height * 0.5);
+        int yFinish = (int) (size.height * 0.4);
+        action.longPress(PointOption.point(x, yStart))
+                .moveTo(PointOption.point(x, yFinish))
+                .release()
+                .perform();
+    }
+
     public void swipeDown() {
         TouchAction action = new TouchAction(driver);
         Dimension size = driver.manage().window().getSize();

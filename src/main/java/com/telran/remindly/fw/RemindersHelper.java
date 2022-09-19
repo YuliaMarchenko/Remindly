@@ -46,6 +46,7 @@ public class RemindersHelper extends HelperBase {
     }
 
     public void selectCertainMonth(String type, int number, String month){
+        pause(1000);
         if (!selectedMonth().equals(month)){
             for (int i = 0; i < number; i++){
                 if(type.equals("future")){
@@ -79,7 +80,7 @@ public class RemindersHelper extends HelperBase {
     }
 
     private String getSelectedYear(){
-        return driver.findElement(By.id("date_picker_year")).getText();
+        return driver.findElement(By.id("month_text_view")).getText();
     }
 
     private void swipeUpUntilNeededYear(String year){
@@ -106,5 +107,20 @@ public class RemindersHelper extends HelperBase {
         } else if (td.equals("pm")){
             tapWithCoordinates(790, 1300);
         }
+    }
+
+    public void tapOnRepeatSwitch(){
+        tap(By.id("repeat_switch"));
+    }
+
+    public void enterRepeatNumber(String text){
+        tap(By.id("repeat_no_text"));
+        type(By.className("android.widget.EditText"), text);
+        tap(By.id("android:id/button1"));
+    }
+
+    public void enterRepeatTime(String repeat) {
+        tap(By.id("repeat_type_text"));
+        tap(By.xpath("//android.widget.TextView[@text='"+repeat+"']"));
     }
 }

@@ -3,10 +3,10 @@ package com.telran.remindly.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CreateReminderTests extends TestBase{
+public class CreateReminderTests extends TestBase {
 
     @Test
-    public void addReminderWithDefaultDataTest(){
+    public void addReminderWithDefaultDataTest() {
         int quantityBeforeAdd;
         int quantityAfterAdd;
         quantityBeforeAdd = app.getMainScreenHelper().getTotalReminders();
@@ -18,7 +18,7 @@ public class CreateReminderTests extends TestBase{
     }
 
     @Test
-    public void addReminderWithRandomSwipeTest(){
+    public void addReminderWithRandomSwipeTest() {
         int quantityBeforeAdd;
         int quantityAfterAdd;
         quantityBeforeAdd = app.getMainScreenHelper().getTotalReminders();
@@ -34,12 +34,12 @@ public class CreateReminderTests extends TestBase{
     }
 
     @Test
-    public void addReminderWithAllDataTest(){
+    public void addReminderWithAllDataTest() {
         app.getRemindersHelper().tapOnAddReminder();
         app.getRemindersHelper().fillReminderTitle("Christmas");
         app.getRemindersHelper().tapOnDateField();
         app.getRemindersHelper().selectCertainMonth("future", 4, "Dec");
-        app.getRemindersHelper().selectDay(23);
+        app.getRemindersHelper().selectDay(22);
         app.getRemindersHelper().tapOnYear();
         app.getRemindersHelper().selectYear("future", "2023");
         app.getRemindersHelper().tapOnOk();
@@ -47,11 +47,11 @@ public class CreateReminderTests extends TestBase{
         app.getRemindersHelper().selectTimeOfDay("am");
         app.getRemindersHelper().tapWithCoordinates(269, 924);
         app.getRemindersHelper().tapWithCoordinates(539, 1205);
-//        app.getRemindersHelper().tapOnOk();
-//        app.getRemindersHelper().tapOnRepeatSwitch();
-//        app.getRemindersHelper().enterRepeatNumber("3");
-//        app.getRemindersHelper().swipeUp();
-//        app.getRemindersHelper().enterRepeatTime("Month");
-//        app.getRemindersHelper().saveReminder();
+        app.getRemindersHelper().tapOnOk();
+        app.getRemindersHelper().tapOnRepeatSwitch();
+        app.getRemindersHelper().enterRepeatNumber("3");
+        app.getRemindersHelper().swipeUp2();
+        app.getRemindersHelper().enterRepeatTime("Month");
+        app.getRemindersHelper().saveReminder();
     }
 }
