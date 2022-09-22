@@ -1,5 +1,6 @@
 package com.telran.remindly.fw;
 
+import com.telran.remindly.model.Reminder;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -122,5 +123,30 @@ public class RemindersHelper extends HelperBase {
     public void enterRepeatTime(String repeat) {
         tap(By.id("repeat_type_text"));
         tap(By.xpath("//android.widget.TextView[@text='"+repeat+"']"));
+    }
+
+    public void enterAllData(Reminder reminder){
+        tapOnAddReminder();
+        fillReminderTitle(reminder.getTitle());
+        tapOnDateField();
+        selectCertainMonth(reminder.getType(), reminder.getNumber(), reminder.getMonth());
+        selectDay(reminder.getIndex());
+        tapOnYear();
+        selectYear(reminder.getType1(), reminder.getYear());
+        tapOnOk();
+        tapOnTime();
+        selectTimeOfDay(reminder.getTd());
+        tapWithCoordinates(reminder.getX(), reminder.getY());
+        tapWithCoordinates(reminder.getX(), reminder.getY());
+        tapOnOk();
+        tapOnRepeatSwitch();
+        enterRepeatNumber(reminder.getNumberRepeat());
+        swipeUp2();
+        enterRepeatTime(reminder.getTimeRepeat());
+        saveReminder();
+    }
+
+    public String isTitlePresent(){
+        return driver.findElement(By.id("recycle_title")).getText();
     }
 }
